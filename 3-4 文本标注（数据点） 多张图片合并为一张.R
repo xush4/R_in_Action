@@ -27,3 +27,22 @@ hist(wt, main = "Histogram of wt")
 boxplot(wt, main = "Boxplot of wt")
 par(opar)
 detach(mtcars)
+#一幅图在第一行，其他两幅在第二行
+attach(mtcars)
+layout(matrix(c(1, 1, 2, 3), 2, 2, byrow = TRUE))
+hist(wt)
+hist(mpg)
+hist(disp)
+detach(mtcars)
+#在坐标轴外添加箱型图
+opar <- par(no.readonly = TRUE)
+par(fig = c(0, 0.8, 0, 0.8))
+plot(mtcars$wt, mtcars$mpg, xlab = "Miles Per Gallon", 
+     ylab = "Car Weight")
+par(fig = c(0, 0.8, 0.492, 1), new = TRUE)
+boxplot(mtcars$wt, horizontal = TRUE, axes = FALSE)
+par(fig = c(0.55, 1, 0, 0.8), new = TRUE)
+boxplot(mtcars$mpg, axes = FALSE)
+mtext("Enhanced Scatterplot", side = 3, outer = TRUE, 
+      line = -3)
+par(opar)

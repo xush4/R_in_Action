@@ -8,7 +8,7 @@ attach(mtcars)
 detach(mtcars)
 dev.off()
 
-jpeg("Graph3-1.jpg")#Êä³öjpg
+jpeg("Graph3-1.jpg", width = 480, height = 480)#Êä³öjpg
   attach(mtcars)
   plot(wt,mpg)
   abline(lm(mpg~wt))
