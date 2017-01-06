@@ -1,2 +1,2 @@
 # R_in_Action
-Modified Codes from R in Action.
+Modified Codes for "R in Action, First Edition" Manning. 
