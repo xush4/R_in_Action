@@ -15,3 +15,9 @@ summary(npmc(mydata), type = "BF")
 #可以从双侧的p值（p.value.2s）看(P<0.05)
 #出南部与其他三个地区显著不同，而其他三个地区之间并没有什么不同。
 aggregate(mydata, by = list(mydata$class), median)
+
+#In version 2 there's a "wmc" function:
+#We download it in the file.
+source("E:/Dropbox/Data Science/R_in_Action/7-9 wmc函数.txt")
+states <- data.frame(state.region, state.x77)
+wmc(Illiteracy ~ state.region, data=states, method="holm")
