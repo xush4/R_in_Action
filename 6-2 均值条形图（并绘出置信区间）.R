@@ -4,7 +4,7 @@ attach(ToothGrowth)
 #此处我们使用melt和cast算出均值和方差
 library("reshape")
 library("reshape2")
-dat
+
 tgc <-melt(ToothGrowth, id.vars = c("supp","dose"))
 tgc
 tgmean= cast(tgc, supp+dose ~ variable, mean, na.rm=T)
@@ -40,7 +40,7 @@ library(ggplot2)
 
 
 # The errorbars overlapped, so use position_dodge to move them horizontally
-#pd <- position_dodge(0.1) # move them .05 to the left and right
+pd <- position_dodge(0.1) # move them .05 to the left and right
 
 #ggplot(tgc, aes(x=dose, y=len, colour=supp)) + 
 #  geom_errorbar(aes(ymin=len-se, ymax=len+se), width=.1, position=pd) +
@@ -115,3 +115,4 @@ ggplot(tgc2, aes(x=dose, y=len, fill=supp)) +
   ggtitle("The Effect of Vitamin C on\nTooth Growth in Guinea Pigs") +
   scale_y_continuous(breaks=0:20*4) +
   theme_bw()
+
